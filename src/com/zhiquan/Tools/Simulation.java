@@ -1,5 +1,6 @@
 package com.zhiquan.Tools;
 
+import com.zhiquan.Gates.Fault;
 import com.zhiquan.Gates.Gates;
 
 import java.util.HashMap;
@@ -32,7 +33,13 @@ public class Simulation {
         HashMap<Integer, Gates> status = cc.getMap();
 
         for (int i = 0; i < inputArray.size(); i++) {
-            status.get(inputArray.get(i)).output = input.charAt(i) - '0';
+            int inputId = inputArray.get(i);
+            status.get(inputId).output = input.charAt(i) - '0';
+            status.get(inputId).faultsComputed = true;
+            Fault f = new Fault(inputId);
+            f.value = 1 - status.get(inputId).output;
+            status.get(inputId).faluts.add(f);
+            //System.out.println(status.get(inputId).faluts);
         }
 
         for (Map.Entry<Integer, Gates> e1 : status.entrySet()) {
@@ -60,6 +67,8 @@ public class Simulation {
             System.out.print(status.get(i).output + "");
         }
         System.out.println();
+
+        deductiveFaultSimulation(status);
     }
 
     public void deductiveFaultSimulation(HashMap<Integer, Gates> status) {
@@ -75,6 +84,7 @@ public class Simulation {
                     else g.faluts = g.getFaults(status);
                 }
             }
+
             for (Map.Entry<Integer, Gates> e2 : status.entrySet()) {
                 Gates g2 = e2.getValue();
                 int g2inputId1 = g2.inputId1;
@@ -88,5 +98,20 @@ public class Simulation {
                 }
             }
         }
+
+//        for (Map.Entry<Integer, Gates> e3 : status.entrySet()) {
+//            if(e3.getValue().faluts.size() == 0) continue;
+//            for(Fault f : e3.getValue().faluts) {
+//                System.out.println(f);
+//            }
+//        }
+
+        for (Integer i : outputArray) {
+            //System.out.print(status.get(i).output + "");
+            for(Fault f : status.get(i).faluts) {
+                System.out.println(f);
+            }
+        }
+        //System.out.println();
     }
 }

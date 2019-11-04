@@ -23,6 +23,6 @@ public class Fault {
 
     @Override
     public String toString(){
-        return id + "stuck at " + value;
+        return id + " stuck at " + value;
     }
 }

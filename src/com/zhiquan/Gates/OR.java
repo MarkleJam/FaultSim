@@ -1,5 +1,7 @@
 package com.zhiquan.Gates;
 
+import java.util.HashSet;
+
 public class OR extends Gates {
 
     public OR(int input1, int input2, int id) {
@@ -9,6 +11,7 @@ public class OR extends Gates {
         this.inversionValue = 0;
         this.id = id;
         this.type = "OR";
+        faluts = new HashSet<>();
     }
 
     @Override

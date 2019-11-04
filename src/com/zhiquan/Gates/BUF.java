@@ -1,5 +1,7 @@
 package com.zhiquan.Gates;
 
+import java.util.HashSet;
+
 public class BUF extends Gates {
     public BUF(int input1, int id) {
         this.inputId1 = input1;
@@ -8,6 +10,7 @@ public class BUF extends Gates {
         //this.inversionValue = 0;
         this.id = id;
         this.type = "BUF";
+        faluts = new HashSet<>();
     }
 
     @Override

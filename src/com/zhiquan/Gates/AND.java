@@ -1,5 +1,7 @@
 package com.zhiquan.Gates;
 
+import java.util.HashSet;
+
 public class AND extends Gates{
     public AND(int input1, int input2, int id) {
         this.inputId1 = input1;
@@ -8,6 +10,7 @@ public class AND extends Gates{
         this.inversionValue = 0;
         this.id = id;
         this.type = "AND";
+        faluts = new HashSet<>();
     }
 
 //    @Override

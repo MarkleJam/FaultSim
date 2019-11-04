@@ -1,11 +1,14 @@
 package com.zhiquan.Gates;
 
+import java.util.HashSet;
+
 public class INV extends Gates {
     public INV(int input1, int id) {
         this.inputId1 = input1;
         this.inputId2 = input1;
         this.id = id;
         this.type = "INV";
+        faluts = new HashSet<>();
     }
 
     @Override

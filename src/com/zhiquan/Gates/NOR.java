@@ -1,5 +1,7 @@
 package com.zhiquan.Gates;
 
+import java.util.HashSet;
+
 public class NOR extends Gates {
     public NOR(int input1, int input2, int id) {
         this.inputId1 = input1;
@@ -8,6 +10,7 @@ public class NOR extends Gates {
         this.inversionValue = 1;
         this.id = id;
         this.type = "NOR";
+        faluts = new HashSet<>();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.zhiquan.Gates;
 
+import java.util.HashSet;
+
 public class NAND extends Gates {
     public NAND(int input1, int input2, int id) {
         this.inputId1 = input1;
@@ -8,6 +10,7 @@ public class NAND extends Gates {
         this.inversionValue = 1;
         this.id = id;
         type = "NAND";
+        faluts = new HashSet<>();
     }
 
     public int output(int s1, int s2) {
