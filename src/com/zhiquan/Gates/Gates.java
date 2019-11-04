@@ -39,8 +39,6 @@ public abstract class Gates {
                 ret.addAll(input2.faluts);
                 ret.removeAll(input1.faluts);
             } else if(input1.output == controlValue && input2.output == controlValue) {
-                //ret.addAll();
-                //input2.faluts.retainAll(input1.faluts);
                 HashSet<Fault> temp = new HashSet<>();
                 temp.addAll(input1.faluts);
                 temp.retainAll(input2.faluts);
